@@ -1,0 +1,44 @@
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#jogadores-container {
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px; /* Largura máxima da lista */
+}
+
+.linha-jogadores {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.container {
+  width: 100%; /* Uma coluna até 768px */
+  max-width: calc(50% - 20px); /* Duas colunas até 1024px, com espaço entre elas */
+  margin: 10px;
+  background-color: gray;
+  text-align: center;
+  box-sizing: border-box; /* Considera padding e borda no cálculo da largura */
+}
+
+@media (min-width: 768px) {
+  .container {
+      width: calc(50% - 20px); /* Duas colunas até 1024px, com espaço entre elas */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+      width: calc(25% - 20px); /* Quatro colunas depois de 1024px, com espaço entre elas */
+  }
+}
