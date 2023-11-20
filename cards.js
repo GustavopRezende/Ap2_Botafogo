@@ -1,8 +1,8 @@
 const url = "https://botafogo-atletas.mange.li";
 let playerNumbers = Array.from({ length: 60 }, (_, i) => i + 1);
 
-const pegar_coisas = async (caminho) => {
-    const resposta = await fetch(caminho);
+const pegar_coisas = async (endpoint) => {
+    const resposta = await fetch(`${url}/${endpoint}`);
     const dados = await resposta.json();
     return dados;
 }
@@ -19,7 +19,7 @@ const preenche = (atleta) => {
 
     // Adiciona um evento de clique ao container do card
     container.addEventListener('click', () => {
-        console.log("Número do jogador:", atleta.id); // Use atleta.id em vez de atleta.numero
+        console.log("Número do jogador:", atleta.id);
         redirecionarParaDetalhes(atleta.id);
     });
 
@@ -34,14 +34,14 @@ const limparJogadores = () => {
     containerJogadores.innerHTML = '';
 }
 
-const buscarEExibirJogadores = async () => {
-    for (const numero_jogador of playerNumbers) {
-        try {
-            const data = await pegar_coisas(`${url}/${numero_jogador}`);
-            preenche(data);
-        } catch (error) {
-            console.error(`Erro ao buscar dados para o jogador ${numero_jogador}:`, error);
-        }
+const buscarEExibirJogadores = async (endpoint) => {
+    try {
+        const data = await pegar_coisas(endpoint);
+        data.forEach((atleta) => {
+            preenche(atleta);
+        });
+    } catch (error) {
+        console.error("Erro ao buscar dados:", error);
     }
 }
 
@@ -49,13 +49,15 @@ const filtrarPorGenero = async (genero) => {
     // Limpa os jogadores exibidos atualmente
     limparJogadores();
 
-    // Atualiza a lista de números de jogadores com base no gênero selecionado
-    playerNumbers = genero === 'Feminino'
-        ? Array.from({ length: 26 }, (_, i) => i + 1)
-        : Array.from({ length: 34 }, (_, i) => i + 27);
+    let endpoint;
+    if (genero === 'Feminino') {
+        endpoint = 'feminino';
+    } else {
+        endpoint = 'masculino';
+    }
 
     // Chama a função para buscar e exibir jogadores com base no novo filtro
-    buscarEExibirJogadores();
+    buscarEExibirJogadores(endpoint);
 }
 
 const redirecionarParaDetalhes = (numeroJogador) => {
@@ -68,11 +70,8 @@ const verTodosJogadores = () => {
     // Limpa os jogadores exibidos atualmente
     limparJogadores();
 
-    // Atualiza a lista de números de jogadores para incluir todos (de 1 a 60)
-    playerNumbers = Array.from({ length: 60 }, (_, i) => i + 1);
-
     // Chama a função para buscar e exibir todos os jogadores
-    buscarEExibirJogadores();
+    buscarEExibirJogadores('all');
 }
 
 

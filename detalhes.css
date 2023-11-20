@@ -1,0 +1,73 @@
+/* Reset de estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo da página */
+body {
+    font-family: 'VinaSans', sans-serif;
+    background-color: #ccc;
+}
+
+/* Container para os detalhes do jogador */
+#detalhes-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Estilo do cabeçalho */
+#nome-jogador {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Estilo da imagem do jogador */
+#imagem-jogador {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Estilo do texto descritivo do jogador */
+#descricao-jogador {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+/* Estilo para informações adicionais */
+#elenco, #posicao-jogador, #nome-completo-jogador, #nascimento-jogador, #altura-jogador {
+    font-size: 14px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os valores específicos das informações adicionais */
+span {
+    font-weight: bold;
+    color: #333;
+}
+/* Estilo para o botão Voltar */
+button {
+    background-color: #5a5a5a;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #5a5a5a;
+}
