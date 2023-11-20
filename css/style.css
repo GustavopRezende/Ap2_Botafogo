@@ -6,7 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     flex-direction: column;
-    background-image: url('pngwing.com.png'); 
+    background-image: url('/pngwing.com.png'); 
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
