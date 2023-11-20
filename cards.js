@@ -7,8 +7,6 @@ const pegar_coisas = async (caminho) => {
     return dados;
 }
 
-// ... (código anterior)
-
 const preenche = (atleta) => {
     const container = document.createElement('div');
     const titulo = document.createElement('h3');
@@ -30,9 +28,6 @@ const preenche = (atleta) => {
 
     document.getElementById('jogadores').appendChild(container);
 }
-
-// ... (código posterior)
-
 
 const limparJogadores = () => {
     const containerJogadores = document.getElementById('jogadores');
@@ -67,6 +62,17 @@ const redirecionarParaDetalhes = (numeroJogador) => {
     // Redireciona para a página de detalhes com o número do jogador na URL
     window.location.href = `detalhes.html?jogador=${numeroJogador}`;
     console.log(`Redirecionar para detalhes do jogador ${numeroJogador}`);
+}
+
+const verTodosJogadores = () => {
+    // Limpa os jogadores exibidos atualmente
+    limparJogadores();
+
+    // Atualiza a lista de números de jogadores para incluir todos (de 1 a 60)
+    playerNumbers = Array.from({ length: 60 }, (_, i) => i + 1);
+
+    // Chama a função para buscar e exibir todos os jogadores
+    buscarEExibirJogadores();
 }
 
 

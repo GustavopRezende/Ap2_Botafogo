@@ -1,3 +1,32 @@
+/* Estilos para o contêiner de botões */
+.button-container {
+  text-align: center;
+}
+
+/* Estilos para os botões */
+button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  display: inline-block; /* Adiciona essa propriedade */
+}
+
+/* Estilo específico para o botão "Ver Todos" */
+#verTodos {
+  background-color: #2ecc71;
+}
+
+/* Estilos para o título "Jogadores" */
+h1 {
+  text-align: center;
+  color: #333;
+}
+
 /* Estilos para a grade de cards */
 .card-grid {
   display: grid;
@@ -38,18 +67,18 @@
 /* Media queries para layout responsivo */
 @media screen and (max-width: 768px) {
   .card-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .card-grid {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (min-width: 1025px) {
   .card-grid {
-      grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
