@@ -15,7 +15,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
-  aspect-ratio: 1; /* Mantém uma relação de aspecto quadrada */
+  max-width: 300px; /* Defina o tamanho máximo desejado para os cards */
 }
 
 .card-masculino {
@@ -26,6 +26,13 @@
 .card-feminino {
   background-color: #e74c3c;
   color: #fff;
+}
+
+/* Adicione espaçamento interno e externo para os cards */
+.card-masculino,
+.card-feminino {
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 /* Media queries para layout responsivo */

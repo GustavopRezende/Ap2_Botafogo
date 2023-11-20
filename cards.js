@@ -7,24 +7,32 @@ const pegar_coisas = async (caminho) => {
     return dados;
 }
 
+// ... (código anterior)
+
 const preenche = (atleta) => {
     const container = document.createElement('div');
     const titulo = document.createElement('h3');
     const imagem = document.createElement('img');
-    const descricao = document.createElement('p');
 
-    container.className = atleta.genero === 'Masculino' ? 'card-masculino' : 'card-feminino';
+    container.className = atleta.elenco === 'feminino' ? 'card-feminino' : 'card-masculino';
     titulo.innerText = atleta.nome;
     imagem.src = atleta.imagem;
     imagem.alt = `Imagem de ${atleta.nome}`;
-    descricao.innerHTML = atleta.descricao;
+
+    // Adiciona um evento de clique ao container do card
+    container.addEventListener('click', () => {
+        console.log("Número do jogador:", atleta.id); // Use atleta.id em vez de atleta.numero
+        redirecionarParaDetalhes(atleta.id);
+    });
 
     container.appendChild(titulo);
     container.appendChild(imagem);
-    container.appendChild(descricao);
 
     document.getElementById('jogadores').appendChild(container);
 }
+
+// ... (código posterior)
+
 
 const limparJogadores = () => {
     const containerJogadores = document.getElementById('jogadores');
@@ -54,6 +62,14 @@ const filtrarPorGenero = async (genero) => {
     // Chama a função para buscar e exibir jogadores com base no novo filtro
     buscarEExibirJogadores();
 }
+
+const redirecionarParaDetalhes = (numeroJogador) => {
+    // Redireciona para a página de detalhes com o número do jogador na URL
+    window.location.href = `detalhes.html?jogador=${numeroJogador}`;
+    console.log(`Redirecionar para detalhes do jogador ${numeroJogador}`);
+}
+
+
 
 // Inicializa a exibição com todos os jogadores
 // buscarEExibirJogadores();  // Você pode comentar ou remover esta linha se não quiser exibir todos os jogadores inicialmente
