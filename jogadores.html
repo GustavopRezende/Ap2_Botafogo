@@ -7,22 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Faixa cinza claro com texto -->
+    <!-- Faixa cinza claro com texto e botão de voltar -->
     <div class="header-banner">
         <p>Atletas Botafogo</p>
+        <button onclick="window.location.href='index.html'">Voltar</button>
     </div>
 
     <!-- Container para os botões e jogadores -->
     <div class="container">
-    <div class="button-container">
-        <button onclick="filtrarPorGenero('Masculino')">Elenco Masculino</button>
-        <button onclick="filtrarPorGenero('Feminino')">Elenco Feminino</button>
-        <button onclick="verTodosJogadores()">Ver Todos</button>
+        <div class="button-container">
+            <button onclick="filtrarPorGenero('Masculino')">Elenco Masculino</button>
+            <button onclick="filtrarPorGenero('Feminino')">Elenco Feminino</button>
+            <button onclick="verTodosJogadores()">Ver Todos</button>
+        </div>
+        <h1>Descubra Mais!</h1>
+        <p>Clique no card abaixo para desvendar todos os detalhes e informações emocionantes que temos para compartilhar com você. Não perca a oportunidade de explorar mais!</p>
+        <div id="jogadores" class="card-grid"></div>
     </div>
-    <h1>Descubra Mais!</h1>
-    <p>Clique no card abaixo para desvendar todos os detalhes e informações emocionantes que temos para compartilhar com você. Não perca a oportunidade de explorar mais!</p>
-    <div id="jogadores" class="card-grid"></div>
-</div>
 
     <script src="cards.js"></script>
 </body>

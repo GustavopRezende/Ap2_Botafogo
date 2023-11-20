@@ -1,14 +1,7 @@
-/* Reset de estilos padrão */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* Estilo do corpo da página */
 body {
     font-family: 'VinaSans', sans-serif;
-    background-color: #ccc;
+    background-color: #555555;
 }
 
 /* Container para os detalhes do jogador */
@@ -56,6 +49,7 @@ span {
     font-weight: bold;
     color: #333;
 }
+
 /* Estilo para o botão Voltar */
 button {
     background-color: #5a5a5a;
@@ -70,4 +64,9 @@ button {
 
 button:hover {
     background-color: #5a5a5a;
+}
+
+/* Estilo para dispositivos com largura de tela até 768 pixels na orientação vertical */
+@media (max-width: 768px) and (orientation: portrait) {
+    /* Adicione seus estilos específicos para dispositivos menores aqui */
 }
