@@ -2,9 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const numeroJogador = urlParams.get('jogador');
 
-    const pegarDetalhesJogador = async (numero) => {
+    const fetchPlayerDetails = async (numero) => {
         try {
-            // Converte o número do jogador para um inteiro
             const numeroInteiro = parseInt(numero, 10);
 
             if (isNaN(numeroInteiro)) {
@@ -26,29 +25,52 @@ document.addEventListener('DOMContentLoaded', () => {
             return dados;
         } catch (error) {
             console.error(`Erro ao obter detalhes do jogador ${numeroJogador}:`, error);
-            // Adicione um redirecionamento para uma página de erro se necessário
+            // Handle error or redirect to an error page if necessary
+            throw error;
         }
     };
 
-    const exibirDetalhes = (detalhes) => {
+    const displayPlayerDetails = (detalhes) => {
         if (detalhes) {
-            document.getElementById('nome-jogador').innerText = detalhes.nome;
-            document.getElementById('imagem-jogador').src = detalhes.imagem;
-            document.getElementById('descricao-jogador').innerText = detalhes.descricao;
+            const elementIds = {
+                elenco: 'elenco',
+                nome: 'nome-jogador',
+                posicao: 'posicao-jogador',
+                imagem: 'imagem-jogador',
+                descricao: 'descricao-jogador',
+                nome_completo: 'nome-completo-jogador',
+                nascimento: 'nascimento-jogador',
+                altura: 'altura-jogador'
+            };
+
+            Object.keys(elementIds).forEach(key => {
+                const element = document.getElementById(elementIds[key]);
+                if (element) {
+                    if (key === 'nascimento') {
+                        const [dataNascimento, localNascimento] = detalhes[key].split(', ');
+                        element.innerText = `Data de Nascimento: ${dataNascimento}\nLocal de Nascimento: ${localNascimento}`;
+                    } else {
+                        element.innerText = detalhes[key];
+                        if (key === 'imagem') {
+                            element.src = detalhes[key];
+                        }
+                    }
+                }
+            });
         } else {
             console.error(`Dados do jogador ${numeroJogador} não disponíveis.`);
-            // Adicione um redirecionamento para uma página de erro se necessário
+            // Handle error or redirect to an error page if necessary
         }
     };
 
     if (numeroJogador) {
-        pegarDetalhesJogador(numeroJogador)
-            .then(exibirDetalhes)
+        fetchPlayerDetails(numeroJogador)
+            .then(displayPlayerDetails)
             .catch((error) => {
                 console.error(`Erro ao exibir detalhes do jogador ${numeroJogador}:`, error);
             });
     } else {
         console.error('Número do jogador não fornecido na URL.');
-        // Adicione um redirecionamento para uma página de erro se necessário
+        // Handle error or redirect to an error page if necessary
     }
 });
