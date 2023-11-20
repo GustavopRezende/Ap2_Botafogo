@@ -1,11 +1,34 @@
+/* Estilos para a faixa superior */
+.header-banner {
+  background-color: #5a5a5a; /* Cor de fundo cinza claro */
+  padding: 10px; /* Espaçamento interno */
+}
+
+.header-banner p {
+  margin: 0;
+  font-size: 18px;
+  color: #ffffff; /* Cor do texto */
+}
+
+/* Estilos para o contêiner principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza o conteúdo na página */
+}
+
+body {
+ background-color: #ccc;
+}
+
 /* Estilos para o contêiner de botões */
+
 .button-container {
   text-align: center;
 }
 
 /* Estilos para os botões */
 button {
-  background-color: #3498db;
+  background-color: #5a5a5a;
   color: #fff;
   border: none;
   padding: 10px 15px;
@@ -48,12 +71,12 @@ h1 {
 }
 
 .card-masculino {
-  background-color: #3498db;
+  background-color: #272727;
   color: #fff;
 }
 
 .card-feminino {
-  background-color: #e74c3c;
+  background-color: #272727;
   color: #fff;
 }
 
@@ -82,3 +105,4 @@ h1 {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
