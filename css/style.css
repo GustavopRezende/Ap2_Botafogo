@@ -25,6 +25,11 @@ h1 {
     margin-top: 20px;
 }
 
+h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
 form {
     width: 100%;
     max-width: 300px; /* Ajuste o valor conforme necessário */
